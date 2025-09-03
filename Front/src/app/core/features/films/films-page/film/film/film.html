@@ -1,0 +1,25 @@
+@if (film.obraz_filmu) {
+  <main>
+    <div class="filmy">
+      <div class="photo-filmu">
+        <img class="photo-film-img" [src]="film.obraz_filmu">
+      </div>
+      <div class="ocena" id="rating-stars"></div>
+      <div class="film-info">
+      <span>
+        @for (star of arrOcena; track star) {
+          <img src="./assets/star.png" alt="Star">
+        }
+      </span>
+        <div class="title">Nazwa: {{ film.nazwa }}</div>
+        <div class="gatunek">Gatunek: {{ film.gatunek }}</div>
+        <div class="year">Rok: {{ film.rok }}</div>
+        <div class="description">Opis: {{ film.opis }}</div>
+        <div class="more">
+          <div class="add-comm" (click)="filmInfo(film.id)">Dodać komentarz</div>
+          <img src="./assets/play.png" (click)="play(film.id)">
+        </div>
+      </div>
+    </div>
+  </main>
+}

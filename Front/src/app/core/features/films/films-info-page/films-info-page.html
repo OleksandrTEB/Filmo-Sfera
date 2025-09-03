@@ -1,0 +1,65 @@
+@if (film) {
+  <main>
+    <div class="container">
+      <div class="left-col">
+        <div class="filmy">
+          <div class="photo-fimlu">
+            <img class="phpto-film-img" [src]="film.obraz_filmu" alt="Zdjęcie filmu">
+          </div>
+          <div class="film-info">
+          <span>
+            @for (star of arrOcena; track star) {
+              <img src="./assets/star.png" alt="Star">
+            }
+          </span>
+            <div class="title">Nazwa: {{ film.nazwa }}</div>
+            <div class="gatunek">Gatunek: {{ film.gatunek }}</div>
+            <div class="year">Rok: {{ film.rok }}</div>
+            <div class="ocena"></div>
+            @if (dod) {
+              <div class="wiencej">
+                <div class="add-comm"  (click)="wiskomm()">Dodać komentarz</div>
+                @if (dod) {
+                  <img src="./assets/play.png" (click)="play(film.id)" alt="Play">
+                }
+              </div>
+            }
+            @if (wis) {
+              <div class="komentarz">
+                <div class="wpis">
+                  Wpisz tu komentarz
+                </div>
+                <div class="pole">
+                  <textarea name="komentarzinp" id="komentarzinp" [(ngModel)]="text"></textarea>
+                </div>
+                <div class="wysliji" (click)="wyslij()">
+                  <input type="button" value="Wyślij" class="subm">
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="right-col">
+        <div class="trailer">
+          <iframe class="iframe-block" [src]="safeTrailerUrl" allowfullscreen></iframe>
+        </div>
+        <div class="opis">
+          <div class="description">Opis: {{ film.opis }}</div>
+        </div>
+        <div class="komentarze">
+          Komentarze:
+        </div>
+        <div class="comment">
+          @for (comment of comments; track comment.id) {
+            <app-comments
+              [comment]="comment"
+            >
+            </app-comments>
+          }
+        </div>
+      </div>
+    </div>
+  </main>
+}

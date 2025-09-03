@@ -1,0 +1,124 @@
+@use "../../../../../styles/global" as *;
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 5%);
+  margin: 1rem auto;
+  .title {
+    font-size: 30px;
+    padding-bottom: 20px;
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    @media (max-width: 1300px) {
+      flex-direction: column;
+    }
+    .video {
+      width: 100%;
+      flex: 2 2 0;
+      .film {
+        width: 100%;
+        iframe {
+          width: 100%;
+          height: 700px;
+          border: 1px solid #3d444db3;
+          border-radius: 5px;
+
+          @media (max-width: 1500px) {
+            height: 500px;
+          }
+
+          @media (max-width: 900px) {
+            height: 400px;
+          }
+
+          @media (max-width: 786px) {
+            height: 300px;
+          }
+
+          @media (max-width: 657px) {
+            height: 250px;
+          }
+
+          @media (max-width: 480px) {
+            height: 200px;
+            row-gap: .3rem;
+          }
+        }
+      }
+    }
+    .review {
+      overflow: auto;
+      height: 700px;
+      padding: .5rem;
+      flex: .7 .7 0;
+      border-radius: 5px;
+      border: 1px solid rgb(149, 150, 149);
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @media (max-width: 1300px) {
+        overflow: auto;
+        min-height: 700px;
+      }
+      .all-review {
+        row-gap: .5rem;
+        margin-top: 1.1rem;
+      }
+      .reviw {
+        position: sticky;
+        z-index: 1;
+        bottom: 0;
+        .addReview {
+          @include base-button;
+        }
+      }
+    }
+  }
+}
+
+
+.addReviewForm {
+  background-color: rgb(7, 6, 6);
+  border-radius: 10px;
+  .stars {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    .appendStar {
+      .star {
+        &:hover {
+          cursor: pointer;
+        }
+        img {
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+  .pole {
+    margin-top: .4rem;
+    width: 100%;
+    .comment-input {
+      padding: 5px 12px;
+      height: 5rem;
+      background-color: #0d1117;
+      border: 1px solid #3d444db3;
+      width: 100%;
+      margin-bottom: .6rem;
+    }
+  }
+
+  .send {
+    .submit {
+      @include base-button;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@if (film) {
+  <main>
+    <div class="title">{{ film.nazwa }}</div>
+    <div class="content">
+      <div class="video">
+        <div class="film">
+          <iframe [src]="video" allow="autoplay; encrypted-media; fullscreen"
+                  allowfullscreen
+                  style="border: none; overflow: hidden;"
+                  sandbox="allow-scripts allow-same-origin allow-presentation"></iframe>
+        </div>
+      </div>
+      <div class="review">
+        <div class="rec">
+          Recęzje:
+          <div class="all-review">
+            @for (review of reviews; track review) {
+              <app-review
+                [review]="review"
+              >
+              </app-review>
+            }
+          </div>
+        </div>
+        <div class="reviw">
+          @if (add) {
+            <div class="addReview" (click)="review()">
+              Dodać recęzje
+            </div>
+          }
+          @if (addReview) {
+            <div class="addReviewForm">
+            <span>
+              <div class="stars">
+                @for (star of arrStars; track star) {
+                  <span (click)="setStar(star)" class="appendStar">
+                    <span [style.filter]="star <= selectedRating ? 'grayscale(0)' : 'grayscale(1)'"
+                          class="star"
+                    >
+                      <img src="./assets/star.png" alt="Star">
+                    </span>
+                  </span>
+                }
+              </div>
+            </span>
+              <div class="pole">
+                <textarea name="komentarzinp" class="comment-input" [(ngModel)]="text"></textarea>
+              </div>
+              <div class="send" (click)="sendReview()">
+                <button class="submit">Wyślij</button>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </main>
+}
+
+<router-outlet></router-outlet>

@@ -1,0 +1,176 @@
+main .container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 2rem;
+  padding: 2rem 2rem 0.5rem 2rem;
+  max-width: 90%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+@media (max-width: 1300px) {
+  main .container {
+    max-width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  main .container {
+    flex-direction: column;
+    row-gap: 1rem;
+    align-content: center;
+    width: 100%;
+  }
+}
+@media (max-width: 786px) {
+  main .container {
+    max-width: 100%;
+    padding: 1rem 0 0 0;
+    align-items: center;
+  }
+}
+main .container .left-col {
+  width: 300px;
+}
+@media (max-width: 900px) {
+  main .container .left-col {
+    width: 400px;
+    max-width: 80%;
+  }
+}
+main .container .left-col .filmy {
+  background-color: #161b22;
+  border: 1px solid rgba(61, 68, 77, 0.7019607843);
+  border-radius: 7px;
+  overflow: hidden;
+}
+main .container .left-col .filmy .photo-fimlu {
+  width: 100%;
+}
+main .container .left-col .filmy .photo-fimlu .phpto-film-img {
+  aspect-ratio: 3/4;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;
+}
+main .container .left-col .filmy .film-info {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+main .container .left-col .filmy .film-info .title, main .container .left-col .filmy .film-info .gatunek, main .container .left-col .filmy .film-info .year {
+  background-color: #0d1117;
+  border: 1px solid rgba(61, 68, 77, 0.7019607843);
+  border-radius: 5px;
+  padding: 5px 12px;
+  width: 100%;
+  font-size: 0.9rem;
+}
+main .container .left-col .filmy .film-info .wiencej {
+  display: flex;
+  flex-direction: row;
+}
+main .container .left-col .filmy .film-info .wiencej .add-comm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0 0;
+  padding: 8px 16px;
+  background-color: #238636;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 600;
+}
+main .container .left-col .filmy .film-info .wiencej .add-comm:hover {
+  background-color: #1b662a;
+}
+main .container .left-col .filmy .film-info .wiencej .add-comm:active {
+  background-color: #165322;
+}
+main .container .left-col .filmy .film-info .wiencej img {
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  top: 19px;
+  margin-left: 15px;
+}
+main .container .left-col .filmy .film-info .wiencej img:hover {
+  cursor: pointer;
+}
+main .container .right-col {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+@media (max-width: 900px) {
+  main .container .right-col {
+    width: 85%;
+  }
+}
+@media (max-width: 786px) {
+  main .container .right-col {
+    width: 95%;
+  }
+}
+main .container .right-col .trailer iframe {
+  aspect-ratio: 20/8;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+main .container .right-col .opis {
+  background-color: #0d1117;
+  border: 1px solid rgba(61, 68, 77, 0.7019607843);
+  border-radius: 7px;
+  padding: 1rem;
+  font-size: 1rem;
+}
+main .container .right-col .komentarze {
+  background-color: #0d1117;
+  border: 1px solid rgba(61, 68, 77, 0.7019607843);
+  border-radius: 7px;
+  padding: 1rem;
+}
+@media (max-width: 480px) {
+  main .container .right-col .comment {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.7rem;
+    width: 100%;
+  }
+}
+
+.komentarz {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+.komentarz .pole {
+  margin-top: 0.4rem;
+  width: 100%;
+}
+.komentarz .pole #komentarzinp {
+  padding: 5px 12px;
+  background-color: #0d1117;
+  border: 1px solid rgba(61, 68, 77, 0.7019607843);
+  width: 100%;
+  margin-bottom: 0.6rem;
+}
+.komentarz .wysliji .subm {
+  border-radius: 7px;
+  width: 100%;
+  border: transparent;
+  padding: 8px 16px;
+  background-color: #238636;
+}
+.komentarz .wysliji .subm:hover {
+  background-color: #1b662a;
+}
+.komentarz .wysliji .subm:active {
+  background-color: #165322;
+}
+
+/*# sourceMappingURL=films-info-page.css.map */

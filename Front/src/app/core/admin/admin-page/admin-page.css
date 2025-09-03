@@ -1,0 +1,97 @@
+header {
+  position: sticky;
+  background-color: rgb(0, 0, 0);
+  top: 0;
+  width: 100%;
+  border-bottom: 0.5px solid rgb(90, 89, 89);
+  padding: 1rem;
+}
+header .head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 2rem;
+}
+header .head img {
+  height: 100%;
+}
+header .head .log-out {
+  background-color: #0d1117;
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: 1px solid rgba(123, 126, 129, 0.7019607843);
+}
+header .head .log-out:hover {
+  cursor: pointer;
+}
+
+main {
+  max-width: 1000px;
+  margin: 1rem auto;
+}
+main .add-films {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  background-color: #161b22;
+  border: 1px solid rgba(61, 68, 77, 0.7019607843);
+  border-radius: 7px;
+}
+main .add-films .photo-film .photo-film-img {
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+main .add-films .photo-info {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1rem;
+}
+main .add-films .photo-info .opis {
+  grid-area: 2/2/2/5;
+  width: 94%;
+}
+
+.title, .species, .year, .trailer, .opis, .video {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+#title, #gatunek, #year, #trailer_url, #video, #inpopis {
+  background-color: #0d1117;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(123, 126, 129, 0.7019607843);
+}
+#title:focus, #gatunek:focus, #year:focus, #trailer_url:focus, #video:focus, #inpopis:focus {
+  border: 3px solid rgb(39, 68, 228);
+  outline: none;
+  border-radius: 8px;
+}
+
+.dodaj {
+  margin: 16px 0 0.4rem 0;
+  padding: 8px 16px;
+  background-color: #238636;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  width: 200px;
+}
+.dodaj:hover {
+  background-color: #1b662a;
+}
+.dodaj:active {
+  background-color: #165322;
+}
+
+#inpopis {
+  height: 100px;
+}
+
+/*# sourceMappingURL=admin-page.css.map */

@@ -1,0 +1,15 @@
+<div class="cont">
+  <div class="user-info">
+    <div class="avatar">
+      <img class="avatar-comm" [src]="comment.avatar" alt="Avatar">
+    </div>
+    <div class="user-name">{{ comment.username }}</div>
+    <div class="deleteIcon" *ngIf="result">
+      <img src="./assets/delete.png" (click)="deleteComment()" alt="Delete-icon">
+    </div>
+  </div>
+  <div class="comm-info">
+    <div class="text-comment">{{ comment.text }}</div>
+    <div class="time">{{ comment.created_at }}</div>
+  </div>
+</div>

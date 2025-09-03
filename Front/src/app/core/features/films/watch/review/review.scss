@@ -1,0 +1,85 @@
+@use "../../../../../../styles/global" as *;
+
+.cont {
+  display: flex;
+  flex-direction: column;
+  margin: .6rem 0 0 0;
+  border-radius: 7px;
+  padding: .8rem;
+  width: 100%;
+  @include base-border;
+  @media (max-width: 480px) {
+    margin: .3rem 0;
+    width: 100%;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #3d444db3;
+
+    .avatar {
+      .avatar-comm {
+        object-fit: cover;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+      }
+    }
+
+    .user-name {
+      padding-left: .6rem;
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .stars {
+      div {
+
+        img {
+          object-fit: cover;
+          height: 1.5rem;
+        }
+      }
+    }
+
+    .delete-icon {
+      object-fit: cover;
+      width: 1.7rem;
+      margin-left: auto;
+
+      img {
+        filter: grayscale(1);
+        width: 100%;
+
+        &:hover {
+          cursor: pointer;
+          filter: grayscale(0);
+        }
+
+        &:active {
+          filter: grayscale(1);
+        }
+      }
+    }
+  }
+
+  .review-info {
+    display: flex;
+    flex-direction: column;
+
+    .review-text {
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .time {
+      display: flex;
+      justify-content: end;
+      color: rgba(255, 255, 255, .5);
+      font-size: .8rem;
+    }
+  }
+}

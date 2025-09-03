@@ -1,0 +1,85 @@
+@use "global" as *;
+
+main {
+  max-width: 1000px;
+  margin: 1rem auto;
+  .add-films {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    background-color: #0d1117;
+    border: .5px solid #3d444db3;
+    border-radius: 7px;
+    padding: 1rem;
+
+    .photo-film {
+      margin: 0 auto;
+      .photo-film-img {
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+    }
+
+    .details {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      .input-photo {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        .label-photo {
+          position: absolute;
+          @include base-button(150px);
+        }
+        .inp-photo {
+          opacity: 0;
+          width: 140px;
+          padding: 5px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .title, .species, .year {
+        display: flex;
+        flex-direction: column;
+        row-gap: .1rem;
+        input {
+          @include base-input;
+          &:focus {
+            width: 173px;
+          }
+        }
+      }
+    }
+
+    .data {
+      display: flex;
+      flex-direction: column;
+      row-gap: .5rem;
+      .description, .trailer, .video {
+        display: flex;
+        flex-direction: column;
+        row-gap: .1rem;
+        input, textarea {
+          @include base-input;
+        }
+        textarea {
+          &:focus {
+            height: 48px;
+          }
+        }
+      }
+    }
+
+    .add-button {
+      margin: 1rem auto;
+      .add {
+        @include base-button(200px);
+      }
+    }
+  }
+}
+

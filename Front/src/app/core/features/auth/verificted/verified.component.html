@@ -1,0 +1,29 @@
+<main>
+  <div class="form">
+    <div class="text">
+      Na podany mejl został wyslany kod podtwierdzający
+    </div>
+    <div class="code">
+      <input
+        type="number"
+        [(ngModel)]="code"
+        maxlength="6"
+        placeholder="XXXXXX"
+        [class.error-border]="isError"
+      >
+    </div>
+    @if (isError) {
+      <div class="wrong">
+        {{ message }}
+      </div>
+    }
+    <div class="btn">
+      <button (click)="subm()">Verifed</button>
+    </div>
+    <div class="return">
+      <div class="mess" (click)="postMess()">
+        Wyślij ponownie
+      </div>
+    </div>
+  </div>
+</main>

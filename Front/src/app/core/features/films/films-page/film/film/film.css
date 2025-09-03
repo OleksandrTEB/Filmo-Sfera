@@ -1,0 +1,65 @@
+main {
+  max-width: 400px;
+}
+main .filmy {
+  background-color: #161b22;
+  border: 1px solid rgba(61, 68, 77, 0.7019607843);
+  border-radius: 7px;
+}
+main .filmy .photo-filmu {
+  width: 100%;
+}
+main .filmy .photo-filmu .photo-film-img {
+  width: 100%;
+  aspect-ratio: 16/16;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;
+}
+main .filmy .film-info {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+main .filmy .film-info .title, main .filmy .film-info .gatunek, main .filmy .film-info .year, main .filmy .film-info .ocena {
+  background-color: #0d1117;
+  border: 1px solid rgba(61, 68, 77, 0.7019607843);
+  border-radius: 5px;
+  padding: 5px 12px;
+  width: 100%;
+  font-size: 0.9rem;
+}
+main .filmy .film-info .wiecej {
+  display: flex;
+  flex-direction: row;
+}
+main .filmy .film-info .wiecej .add-comm {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background-color: #238636;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+}
+main .filmy .film-info .wiecej .add-comm:hover {
+  background-color: #1b662a;
+  cursor: pointer;
+}
+main .filmy .film-info .wiecej .add-comm:active {
+  background-color: #165322;
+}
+main .filmy .film-info .wiecej img {
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  top: 19px;
+  margin-left: 15px;
+}
+main .filmy .film-info .wiecej img:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=film.css.map */

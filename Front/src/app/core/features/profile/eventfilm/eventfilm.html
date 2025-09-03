@@ -1,0 +1,47 @@
+@if (film) {
+  <main>
+    <div class="film-container">
+
+      <div class="film-info">
+        <div class="title">{{ film.film_title }}</div>
+        <div class="foto">
+          <img [src]="film.film_image" (click)="goToFilm(film.film_id)" alt="{{ film.film_title }}">
+        </div>
+      </div>
+
+      <div class="activ">
+
+        @if (film.comments) {
+          <div class="comment-container">
+            <div class="context">Komentarze:</div>
+            <div class="comments">
+              @for (comment of film.comments; track comment) {
+                <div class="comment">
+                  <div class="text">{{ comment.text }}</div>
+                  <div class="time">{{ comment.date }}</div>
+                </div>
+              }
+            </div>
+          </div>
+        }
+
+        @if (film.reviews) {
+          <div class="review-container">
+            <div class="context">Recęzje:</div>
+            <div class="reviews">
+              @for (review of film.reviews; track review) {
+                <div class="review">
+                  <div class="text">{{ review.text }}</div>
+                  <div class="time">{{ review.date }}</div>
+                </div>
+              }
+            </div>
+          </div>
+        }
+
+      </div>
+
+    </div>
+  </main>
+
+}

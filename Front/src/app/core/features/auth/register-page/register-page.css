@@ -1,0 +1,163 @@
+header {
+  background-color: black;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  border-bottom: 0.5px solid rgb(90, 89, 89);
+  padding: 1rem;
+}
+header .head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 2rem;
+}
+header .head img {
+  height: 100%;
+}
+header .head .nav-menu {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1.3rem;
+}
+header .head .nav-menu:hover {
+  cursor: pointer;
+}
+header .head .nav-menu .sign-in {
+  padding: 4px 10px 6px 10px;
+}
+header .head .nav-menu .sign-in a {
+  text-decoration: none;
+}
+header .head .nav-menu .sign-up {
+  border-radius: 4px;
+  padding: 4px 10px 6px 10px;
+}
+header .head .nav-menu .sign-up a {
+  text-decoration: none;
+}
+
+main {
+  background-color: white;
+}
+main .create-account {
+  background-color: black;
+  display: flex;
+  padding: 1.5rem 0 0 3rem;
+}
+main .create-account .title {
+  height: 70px;
+}
+main .form-register {
+  display: flex;
+  flex-direction: column;
+  max-width: 440px;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+main .form-register form label {
+  color: black;
+}
+main .form-register form .title {
+  color: black;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+main .form-register form label {
+  padding-bottom: 0.3rem;
+}
+main .form-register form input, main .form-register form select {
+  padding: 8px 30px 8px 12px;
+  border-radius: 5px;
+  color: black;
+  border: 1px solid rgb(149, 150, 149);
+  margin-bottom: 1rem;
+}
+main .form-register form input:focus, main .form-register form select:focus {
+  height: 35px;
+  border: 2px solid rgb(39, 68, 228);
+}
+main .form-register form select:focus {
+  height: 37px;
+}
+main .form-register form .div-email {
+  display: flex;
+  flex-direction: column;
+}
+main .form-register form .div-email label {
+  color: black;
+}
+main .form-register form .div-password {
+  display: flex;
+  flex-direction: column;
+}
+main .form-register form .div-password label {
+  color: black;
+}
+main .form-register form .div-username {
+  display: flex;
+  flex-direction: column;
+}
+main .form-register form .div-username label {
+  color: black;
+}
+main .form-register form .div-counry {
+  display: flex;
+  flex-direction: column;
+}
+main .form-register form .div-counry label {
+  color: black;
+}
+main .form-register form .div-counry select {
+  padding-right: 20px;
+}
+main .form-register form .div-counry select option {
+  color: black;
+}
+main .form-register form .license {
+  margin-top: 0.2rem;
+  margin-bottom: 0.6rem;
+}
+main .form-register form .license label {
+  color: black;
+  padding-left: 0.5rem;
+}
+main .form-register form .submit input {
+  border: none;
+  background-color: rgb(34, 33, 33);
+  color: white;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+main .form-register form .submit input:hover {
+  background-color: rgb(20, 20, 20);
+}
+main .form-register form .submit input:active {
+  background-color: black;
+}
+main .form-register form .submit input:focus {
+  height: 45px;
+}
+
+.license {
+  display: flex;
+  align-items: center;
+  margin-top: 0.2rem;
+  margin-bottom: 0.6rem;
+}
+.license input[type=checkbox] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+.license label {
+  color: black;
+  padding-left: 0.5rem;
+}
+
+/*# sourceMappingURL=register-page.css.map */

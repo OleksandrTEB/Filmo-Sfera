@@ -1,0 +1,18 @@
+main {
+  width: 95%;
+  margin: 1rem auto;
+}
+main .content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 1rem;
+  background-color: #151b23;
+  border: 0.5px solid rgb(117, 114, 114);
+  border-radius: 4px;
+}
+main .content .zrecenzowane-filmy {
+  width: 100%;
+}
+
+/*# sourceMappingURL=profile.css.map */

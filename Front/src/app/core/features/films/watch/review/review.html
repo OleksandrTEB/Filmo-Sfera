@@ -1,0 +1,24 @@
+<div class="cont">
+  <div class="user-info">
+    <div class="avatar">
+      <img class="avatar-comm" [src]="review.avatar" alt="Avatar">
+    </div>
+    <div class="user-name">{{ review.username }}</div>
+    <span class="stars">
+        <div>
+          @for (star of arrRating; track star) {
+            <img src="./assets/star.png" alt="Star">
+          }
+        </div>
+      </span>
+    @if (result) {
+      <div class="delete-icon">
+        <img src="./assets/delete.png" (click)="deleteReview()" alt="DeleteIcon">
+      </div>
+    }
+  </div>
+  <div class="review-info">
+    <div class="review-text">{{ review.text }}</div>
+    <div class="time">{{ review.created_at }}</div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<main>
+  <div class="add-films">
+
+    <div class="photo-film">
+      @if (base64Image) {
+        <img class="photo-film-img" [src]="'data:image/*;base64,' + base64Image" alt="Photo">
+      }
+    </div>
+
+    <div class="details">
+
+      <div class="input-photo">
+
+        <label for="image" class="label-photo">Foto do filmu</label>
+        <input
+          class="inp-photo"
+          type="file"
+          name="image"
+          id="image"
+          accept="image/*"
+          (change)="onFilmPhoto($event)"
+        >
+      </div>
+
+      <div class="title">
+        <label for="title">Nazwa</label>
+        <input type="text" name="title" id="title" [(ngModel)]="nazwa">
+      </div>
+
+      <div class="species">
+        <label for="gatunek">Gatunek</label>
+        <input type="text" name="gatunek" id="gatunek" [(ngModel)]="gatunek">
+      </div>
+
+      <div class="year">
+        <label for="year">Rok</label>
+        <input type="number" name="year" id="year" [(ngModel)]="rok">
+      </div>
+    </div>
+
+    <div class="data">
+
+      <div class="description">
+        <label for="description">Opis</label>
+        <textarea type="text" name="description" [(ngModel)]="opis"></textarea>
+      </div>
+
+      <div class="trailer">
+        <label for="trailer_url">Zwiastun</label>
+        <input type="text" name="trailer_url" id="trailer_url" [(ngModel)]="zwiastun">
+      </div>
+
+      <div class="video">
+        <label for="video">Link do filmu</label>
+        <input type="text" name="vodeo" id="video" [(ngModel)]="video">
+      </div>
+
+    </div>
+
+
+    <div class="add-button">
+      <input type="button" value="Dodaj" class="add" (click)="uploadFilm()">
+    </div>
+
+  </div>
+</main>
+

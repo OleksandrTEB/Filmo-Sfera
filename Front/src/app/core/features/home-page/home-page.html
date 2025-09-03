@@ -1,0 +1,71 @@
+<header>
+  <div class="head">
+    <div class="logo">
+      <img src="./assets/favicon.ico" alt="LogoCompany">
+    </div>
+    <div class="user-info">
+      <div class="user-name">{{ username }}</div>
+      <div class="avatar">
+        <img [src]="avatar" alt="Avatar" class="display-avatar">
+      </div>
+      <div class="nav-menu">
+        <img src="./assets/hamburger.png" alt="Hamburger" (click)="toggleMenu($event)">
+        @if (isOpenMenu) {
+          <div class="hamburger-list">
+            <img [src]="avatar" class="display-avatar" alt="Ava">
+            <div class="user-name-hamburger"> {{ username }} </div>
+            <p class="bg-close" (click)="close()">
+              <img src="./assets/close.png" class="close" alt="Close">
+            </p>
+            @if (admin) {
+              <div (click)="addFilm()">Dodać film</div>
+            }
+            <div (click)="home()">Strona Domowa</div>
+            <div (click)="allFilms()">Wszystkie filmy</div>
+            <div class="change-user-name" (click)="changeUsernameToggle()">Zmień imie</div>
+            <div class="change-avatar" (click)="changeAvatarToggle()">Zmień awatar</div>
+            <div class="log-out" (click)="logout()">Wyloguj</div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  @if (changeUsername) {
+    <div class="change-name">
+      <label for="changeName">Nowe imie</label>
+      <p class="bg-red-close" (click)="closeChangeName()">
+        <img src="./assets/red-close.png" class="close" alt="Close">
+      </p>
+      <input type="text" name="changeName" id="changeName" [(ngModel)]="NewUsername">
+      <button class="approved" (click)="NewUsernameToggle()">Zmień</button>
+    </div>
+  }
+  @if (changeAvatar) {
+    <div class="form-avatar">
+      <p class="bg-red-close" (click)="closeAvatar()">
+        <img src="./assets/red-close.png" class="close" alt="Close">
+      </p>
+      <label for="avatar">Załaduj tu nowy awatar</label>
+      <input type="file"
+             name="avatar"
+             id="avatar"
+             accept="Image/*"
+             required
+             (change)="onAvatarSelected($event)"
+      >
+      <button
+        type="button"
+        class="send-avatar"
+        (click)="uploadAvatar()"
+        [disabled]="!selectedFile"
+      >
+        Załaduj
+      </button>
+    </div>
+  }
+</main>
+
+<router-outlet></router-outlet>

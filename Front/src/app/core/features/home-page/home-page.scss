@@ -1,0 +1,236 @@
+@use "global" as *;
+
+header {
+  background-color: #010409;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  border-bottom: .5px solid rgb(90, 89, 89);
+  padding: 1rem;
+
+  .head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #010409;
+    width: 100%;
+    height: 2rem;
+
+    img {
+      height: 100%;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: row;
+      width: 500px;
+      justify-content: end;
+      column-gap: 1.3rem;
+
+      .user-name {
+        padding-right: 1rem;
+        border-right: 1px solid rgb(90, 89, 89);
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .avatar {
+        .display-avatar {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
+      .nav-menu {
+        padding-left: 1rem;
+        border-left: 1px solid rgb(90, 89, 89);
+
+        img {
+          width: 2rem;
+
+          &:hover {
+            cursor: pointer;
+            background: none;
+          }
+
+          &:active {
+            background-color: transparent;
+          }
+        }
+
+        .hamburger-list {
+          display: flex;
+          flex-direction: column;
+          overflow: auto;
+          height: 100vh;
+          width: 320px;
+          font-size: 14px;
+          background-color: #010409;
+          position: fixed;
+          top: 0;
+          right: 0;
+          border: .5px solid #3d444db3;
+          padding: 1rem;
+          border-radius: 10px;
+          animation: list .3s ease-in-out forwards;
+          @keyframes list {
+            0% {
+              transform: translateX(200px);
+            }
+            100% {
+              transform: rotate(-200px);
+            }
+          }
+
+          div {
+            padding: 6px 8px;
+            border-radius: 5px;
+
+            &:hover {
+              cursor: pointer;
+              background-color: #151b23;
+            }
+          }
+
+          img {
+            width: 2rem;
+            height: 2rem;
+            min-height: 2rem;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: .4rem;
+
+            &:hover {
+              cursor: default;
+            }
+          }
+
+          .user-name-hamburger {
+            width: 180px;
+            position: absolute;
+            left: 4rem;
+            top: 1.3rem;
+
+            &:hover {
+              cursor: default;
+            }
+          }
+
+          .bg-close {
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            right: 1rem;
+            top: 1.3rem;
+            border-radius: 5px;
+
+            .close {
+              width: 1.2rem;
+              height: 1.2rem;
+              position: absolute;
+              bottom: -7px;
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            &:hover {
+              cursor: pointer;
+              background-color: #151b23;
+            }
+          }
+
+          .log-out {
+            font-weight: 500;
+            color: #ce3030;
+          }
+        }
+      }
+    }
+  }
+}
+
+main {
+  .change-name {
+    @include base-bg-and-border;
+    border-radius: 5px;
+    padding: 1rem;
+    position: fixed;
+    left: 50%;
+    top: 130px;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 1rem auto;
+
+    input {
+      @include base-bg-and-border;
+      outline: none;
+      padding: 5px 12px;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+
+    .approved {
+      @include base-button;
+      margin: 16px 0 0;
+    }
+  }
+
+  .form-avatar {
+    position: fixed;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: 1px solid #3d444db3;
+    background-color: #151b23;
+    padding: 1rem;
+    border-radius: 5px;
+    z-index: 1000;
+
+    label {
+      margin: 0 0 8px 0;
+    }
+
+    .avatar {
+      background: #ff0000;
+    }
+
+    .send-avatar {
+      margin: 16px 0 0;
+      @include base-button;
+    }
+  }
+}
+
+.bg-red-close {
+  background-color: #a51d1d;
+  position: absolute;
+  right: 1rem;
+  height: 1.4rem;
+  border-radius: 5px;
+
+  img {
+    object-fit: cover;
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  &:hover {
+    background-color: #e32323;
+  }
+
+  &:active {
+    background-color: #951414;
+  }
+}

@@ -1,0 +1,127 @@
+main {
+  max-width: 288px;
+  margin: 0 auto;
+}
+main .logo {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0 24px;
+}
+main .logo img {
+  width: 50px;
+}
+main .login-form .title {
+  text-align: center;
+}
+main .login-form form {
+  font-size: 15px;
+  margin-top: 1rem;
+  border: 1px solid rgba(61, 68, 77, 0.7019607843);
+  background-color: rgba(33, 40, 48, 0.431372549);
+  padding: 1rem;
+  border-radius: 5px;
+}
+main .login-form form .email-div {
+  display: flex;
+  flex-direction: column;
+  margin: 4px 0 16px;
+}
+main .login-form form .email-div label {
+  margin-bottom: 8px;
+}
+main .login-form form .email-div input {
+  background-color: #0d1117;
+  outline: none;
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: 1px solid rgba(123, 126, 129, 0.7019607843);
+}
+main .login-form form .email-div input:focus {
+  width: 248px;
+  height: 29px;
+  border: 2px solid rgb(39, 68, 228);
+  border-radius: 6px;
+}
+main .login-form form .password-div {
+  display: flex;
+  flex-direction: column;
+  margin: 4px 0 16px;
+}
+main .login-form form .password-div .pass {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+main .login-form form .password-div .pass .forg-pass {
+  color: #2a7aef;
+  font-size: 14px;
+}
+main .login-form form .password-div .pass .forg-pass:hover {
+  cursor: pointer;
+}
+main .login-form form .password-div label {
+  margin-bottom: 8px;
+}
+main .login-form form .password-div input {
+  background-color: #0d1117;
+  outline: none;
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: 1px solid rgba(123, 126, 129, 0.7019607843);
+}
+main .login-form form .password-div input:focus {
+  width: 248px;
+  height: 29px;
+  border: 2px solid rgb(39, 68, 228);
+  border-radius: 6px;
+}
+main .login-form form .submit-div input {
+  margin: 16px 0 0;
+  padding: 8px 16px;
+  background-color: #238636;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 600;
+}
+main .login-form form .submit-div input:hover {
+  background-color: #1b662a;
+}
+main .login-form form .submit-div input:active {
+  background-color: #165322;
+}
+main .dop-info {
+  width: 100%;
+  background-color: #161b22;
+  margin: 16px 0 0;
+  padding: 1rem;
+  border: 1px solid rgba(61, 68, 77, 0.7019607843);
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+}
+main .dop-info .log-witf {
+  color: #1f6feb;
+  font-weight: 500;
+}
+main .dop-info .log-witf .gog {
+  margin-left: 6px;
+}
+main .dop-info .log-witf:hover {
+  cursor: pointer;
+}
+main .dop-info .new-conto {
+  margin-top: 5px;
+}
+main .dop-info .new-conto .new-span {
+  margin-left: 6px;
+  color: #1f6feb;
+  font-weight: 400;
+}
+main .dop-info .new-conto .new-span a {
+  color: #1f6feb;
+  text-decoration: none;
+  background-color: #161b22;
+}
+
+/*# sourceMappingURL=login-page.css.map */

@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe Emoji";
+  color: white;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  outline: none;
+}
+
+a {
+  background-color: black;
+}
+
+body {
+  background-color: black;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/*# sourceMappingURL=styles.css.map */

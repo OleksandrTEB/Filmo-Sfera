@@ -1,0 +1,46 @@
+@if (is) {
+  <main>
+    <section class="content">
+      <div class="zrecenzowane-filmy">
+        Zrecenzowanych filmuw: {{ review }}
+      </div>
+
+      <div class="select">
+        <div class="select-div" (click)="dropFn()">
+          <div class="menu">Wybież film</div>
+          <img src="./assets/dropdown.png">
+        </div>
+        @if (drop) {
+          <div class="all-films">
+            <div class="glawn">Wybiez film dla obejżania</div>
+
+            @for (title of userFilms; track title; let i = $index) {
+              @if (title.reviews) {
+                <div
+                  class="film"
+                  (click)="selectFilm(title.film_title); addStyle(i)"
+                  [class.selected]="selectedIndex === i"
+                >
+                  {{ title.film_title }}
+                </div>
+              }
+            }
+
+            <div class="bord"></div>
+            <div class="btn">
+              <button (click)="show()">Wyswietlij</button>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+    @if (selectFilms) {
+      <section class="filmEvent">
+        <app-eventfilm
+          [film]="selectFilms"
+        >
+        </app-eventfilm>
+      </section>
+    }
+  </main>
+}

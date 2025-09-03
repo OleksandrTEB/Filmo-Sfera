@@ -1,0 +1,26 @@
+<body>
+  <header>
+    <div class="head">
+      <div class="logo">
+        <img src="./assets/favicon.ico" alt="LogoCompany">
+      </div>
+      <div class="user-info">
+        <div class="nav-menu">
+          <div class="dashboard" routerLink="">Dashboard</div>
+          <div class="sign-in" routerLink="/login">Zaloguj się</div>
+          <div class="sign-up" routerLink="/register">Utwuż konto</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+   @if (show) {
+     <main>
+       <section class="new-films">
+       </section>
+     </main>
+   }
+</body>
+
+<router-outlet></router-outlet>
+

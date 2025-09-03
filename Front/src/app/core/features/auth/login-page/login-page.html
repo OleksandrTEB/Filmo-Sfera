@@ -1,0 +1,59 @@
+<main>
+  <div class="logo">
+    <img src="./assets/favicon.ico" alt="ico">
+  </div>
+  <div class="login-form">
+    <div class="title">
+      Logowanie do filmo sfery
+    </div>
+    <form (ngSubmit)="onLogin()">
+      <div class="email-div">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          autocomplete="email"
+          [(ngModel)]="email"
+          [class.error-border]="isError"
+        >
+      </div>
+      <div class="password-div">
+        <div class="pass">
+          <label for="password">Hasło</label>
+          <div class="forg-pass">
+            Zapomniałeś hasło?
+          </div>
+        </div>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          autocomplete="new-password"
+          [(ngModel)]="password"
+          [class.error-border]="isError"
+        >
+        @if (isError) {
+          <div class="message">
+            {{ message }}
+          </div>
+        }
+      </div>
+      <div class="submit-div">
+        <input type="submit"
+               value="Zaloguj się"
+               class="login"
+               [class.err]="isError"
+        >
+      </div>
+    </form>
+    <div class="dop-info">
+      <div class="log-witf">
+        Zaloguj się za pomocą<span class="gog log-witf">Google</span>
+      </div>
+      <div class="new-conto">
+        Nie masz konta?<span class="new-span"><a (click)="rout()">Utwuż nowe</a></span>
+      </div>
+    </div>
+  </div>
+</main>

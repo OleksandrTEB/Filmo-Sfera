@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: oleksandrteb/front
+    ports:
+      - "8000:8080"
+  server:
+    image: oleksandrteb/back
+    depends_on:
+      - db
+    ports:
+      - "4000:80"
+    networks:
+      - my_network
+    volumes:
+      - db_images:/app/assets/avatars
+
+  socket:
+    image: oleksandrteb/websock
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  db:
+    image: oleksandrteb/custom_sql
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: filmosfera
+    ports:
+      - "3306:3306"
+    networks:
+      - my_network
+
+networks:
+  my_network:
+
+volumes:
+  db_data:
+  db_images:

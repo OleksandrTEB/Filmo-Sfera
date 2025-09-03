@@ -1,0 +1,88 @@
+.cont {
+  display: flex;
+  flex-direction: column;
+}
+.cont .temcomm {
+  margin: 0.6rem 0;
+  background-color: #0d1117;
+  border: 1px solid rgba(61, 68, 77, 0.7019607843);
+  border-radius: 7px;
+  padding: 0.8rem;
+  width: 100%;
+  animation: wisual 0.8s ease-out forwards;
+}
+@media (max-width: 480px) {
+  .cont .temcomm {
+    margin: 0;
+    width: 100%;
+  }
+}
+.cont .temcomm .user-info {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid rgba(61, 68, 77, 0.7019607843);
+}
+.cont .temcomm .user-info .avatar .avatar-comm {
+  object-fit: cover;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.cont .temcomm .user-info .user-name {
+  padding-left: 0.6rem;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cont .temcomm .user-info .stars div span img {
+  object-fit: cover;
+  height: 1.5rem;
+}
+.cont .temcomm .user-info .deleteIcon {
+  object-fit: cover;
+  width: 1.7rem;
+  margin-left: auto;
+}
+.cont .temcomm .user-info .deleteIcon img {
+  filter: grayscale(1);
+  width: 100%;
+}
+.cont .temcomm .user-info .deleteIcon img:hover {
+  cursor: pointer;
+  filter: grayscale(0);
+}
+.cont .temcomm .user-info .deleteIcon img:active {
+  filter: grayscale(1);
+}
+.cont .temcomm .comm-info {
+  display: flex;
+  flex-direction: column;
+}
+.cont .temcomm .comm-info .comm {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.cont .temcomm .comm-info .time {
+  display: flex;
+  justify-content: end;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+}
+
+@keyframes wisual {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+
+/*# sourceMappingURL=review.css.map */
