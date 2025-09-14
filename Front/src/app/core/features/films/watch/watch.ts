@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Loadfilms} from '../../../services/loadfilms/loadfilms';
-import {Comment, filmInfo, listReview} from '../../../models/interfaces';
+import {FilmInfo, listReview} from '../../../models/interfaces';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {ReviewServices} from '../../../services/review/review';
@@ -16,7 +16,7 @@ import {Subscription} from 'rxjs';
 
 export class ClassWatch implements OnInit {
   filmId!: number;
-  film!: filmInfo;
+  film!: FilmInfo;
   video!: SafeResourceUrl;
 
   reviews!: listReview[];
@@ -30,7 +30,6 @@ export class ClassWatch implements OnInit {
     public route: ActivatedRoute,
     public router: Router,
     public sanitizer: DomSanitizer,
-    public crd: ChangeDetectorRef,
     public ReviewServices: ReviewServices,
     public cdr: ChangeDetectorRef,
     private connSocket: ConnSocket

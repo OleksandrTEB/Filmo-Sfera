@@ -28,7 +28,7 @@ export class Profile implements OnInit {
 
     this.userFilms = respon.films
 
-    if (response.count_reviews != 0 || respon.success === true) {
+    if (response.count_reviews != 0) {
       this.is = true;
     }
 

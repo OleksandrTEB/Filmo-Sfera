@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {filmInfo, FilmsResponse} from '../../models/interfaces';
+import {FilmInfo, FilmsResponse} from '../../models/interfaces';
 import {firstValueFrom} from 'rxjs';
 import {Path} from '../path/path';
 
@@ -19,12 +19,12 @@ export class Loadfilms {
     )}
 
 
-  async getFilmById(filmId: number): Promise<filmInfo> {
+  async getFilmById(filmId: number): Promise<FilmInfo> {
     const body = {
       filmId
     }
     return firstValueFrom(
-      this.http.post<filmInfo>(`${this.path.baseUrl}searchfilm`, body, {
+      this.http.post<FilmInfo>(`${this.path.baseUrl}searchfilm`, body, {
         withCredentials: true
       }));
     }

@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
-import {uploadFilmsSevise} from '../../services/upload-films/film.service';
+import {UploadFilmsService} from '../../services/upload-films/film.service';
 
 @Component({
   selector: 'app-admin',
@@ -11,19 +11,19 @@ export class AdminPage {
   filmPhoto = ''
 
   constructor(
-    public uploadFilmsService: uploadFilmsSevise,
+    public UploadFilmsService: UploadFilmsService,
     public cdr: ChangeDetectorRef,
     ) {}
 
 
   selectedFile: File | null = null;
-  base64Image:  string | null = null;
-  nazwa:        string = '';
-  gatunek:      string = '';
-  rok:          string = '';
-  opis:         string = '';
-  zwiastun:     string = '';
-  video:        string = '';
+  base64Image: string | null = null;
+  title:       string = '';
+  genre:       string = '';
+  year:        string = '';
+  description: string = '';
+  trailer:     string = '';
+  video:       string = '';
 
 
   onFilmPhoto(event: Event) {
@@ -47,14 +47,14 @@ export class AdminPage {
 
   async uploadFilm() {
     if (!this.base64Image || !this.selectedFile) return;
-    const upload = await this.uploadFilmsService.uploadFIlm(
+    await this.UploadFilmsService.uploadFIlm(
         this.base64Image,
         this.selectedFile.name,
-        this.nazwa,
-        this.rok,
-        this.gatunek,
-        this.opis,
-        this.zwiastun,
+        this.title,
+        this.year,
+        this.genre,
+        this.description,
+        this.trailer,
         this.video
         )
     window.location.reload();

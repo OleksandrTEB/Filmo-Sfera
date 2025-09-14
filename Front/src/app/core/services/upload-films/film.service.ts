@@ -7,18 +7,18 @@ import {firstValueFrom} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class uploadFilmsSevise {
+export class UploadFilmsService {
   constructor(private http: HttpClient, private path: Path) {}
 
-  async uploadFIlm(imageFilm: string, name: string, title: string, year: string, gatunek: string,  opis: string, zwiastun: string, video: string): Promise<boolean> {
+  async uploadFIlm(imageFilm: string, name: string, title: string, year: string, genre: string,  description: string, trailer: string, video: string): Promise<boolean> {
     const body = {
       imageFilm,
       name,
       title,
-      gatunek,
+      genre,
       year,
-      opis,
-      zwiastun,
+      description,
+      trailer,
       video
     }
 

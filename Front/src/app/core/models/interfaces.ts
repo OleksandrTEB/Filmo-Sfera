@@ -41,30 +41,19 @@ export interface ErrorResponse {
 
 export interface FilmInfo {
   id: number;
-  nazwa: string;
-  rok: string;
-  opis: string;
-  gatunek: string;
-  obraz_filmu: string;
-  ocena: number;
-  poster?: string;
+  title: string;
+  year: string;
+  description: string;
+  genre: string;
+  film_image: string;
+  trailer: string;
+  video: string;
+  rating: number;
 }
 
 export interface FilmsResponse {
   success: boolean;
   films: FilmInfo[];
-}
-
-export interface filmInfo {
-  id: number;
-  nazwa: string;
-  rok: string;
-  opis: string;
-  gatunek: string;
-  obraz_filmu: string;
-  trailer: string;
-  video: string;
-  ocena: number;
 }
 
 export interface Comment {

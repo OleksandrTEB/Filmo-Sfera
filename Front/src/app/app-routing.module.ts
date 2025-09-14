@@ -2,6 +2,7 @@ import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {StartPage} from './core/features/start-page/start-page';
 import {registerPage} from './core/features/auth/register-page/register-page';
+import {Settings} from './core/features/home-page/settings/settings';
 import {loginPage} from './core/features/auth/login-page/login-page';
 import {HomePage} from './core/features/home-page/home-page';
 import {FilmsPage} from './core/features/films/films-page/films-page';
@@ -36,6 +37,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path: 'profile', component: Profile },
+      {path: 'settings', component: Settings },
       {path: 'films', component: FilmsPage },
       {path: 'filminfo/:id', component: FilmsInfoPage },
       {path: 'watch/:id', component: ClassWatch },

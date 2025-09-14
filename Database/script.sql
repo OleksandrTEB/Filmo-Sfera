@@ -34,17 +34,17 @@ VALUES ('../assets/avatars/defaultAvatar.png');
 
 CREATE TABLE films (
   id          BIGINT AUTO_INCREMENT PRIMARY KEY,
-  nazwa       VARCHAR(250),
-  rok         VARCHAR(250),
-  gatunek     VARCHAR(250),
-  opis        TEXT,
-  obraz_filmu VARCHAR(250),
+  title       VARCHAR(250),
+  year         VARCHAR(250),
+  genre     VARCHAR(250),
+  description        TEXT,
+  film_image VARCHAR(250),
   trailer     VARCHAR(250),
-  video       VARCHAR(250),
-  ocena       VARCHAR(250)
+  video       VARCHAR(100),
+  rating       VARCHAR(10)
 );
 
-INSERT INTO `films` (`id`, `nazwa`, `rok`, `gatunek`, `opis`, `obraz_filmu`, `trailer`, `video`) VALUES
+INSERT INTO `films` (`id`, `title`, `year`, `genre`, `description`, `film_image`, `trailer`, `video`) VALUES
   (1, 'Pirates of the Caribbean', '2003', 'Pirats', 'The Curse of the Black Pearl', '../assets/films/piraty1.webp', 'https://player.vimeo.com/video/1104458644', 'https://player.vimeo.com/video/1104458644');
 
 
@@ -55,8 +55,8 @@ CREATE TABLE review (
   text        TEXT NOT NULL,
   rating      INT  NOT NULL,
   created_at  DATETIME DEFAULT CURRENT_TIMESTAMP,
-  CONSTRAINT film1_id_fk FOREIGN KEY (film_id) REFERENCES films (id) ON DELETE CASCADE,
-  CONSTRAINT user1_id_fk FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+  CONSTRAINT REVIEW_FILM FOREIGN KEY (film_id) REFERENCES films (id) ON DELETE CASCADE,
+  CONSTRAINT REVIEW_USER FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 
@@ -67,6 +67,6 @@ CREATE TABLE comments
   user_id    BIGINT  NOT NULL,
   text       TEXT NOT NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  CONSTRAINT film_id_fk FOREIGN KEY (film_id) REFERENCES films (id) ON DELETE CASCADE,
-  CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+  CONSTRAINT COMMENT_FILM FOREIGN KEY (film_id) REFERENCES films (id) ON DELETE CASCADE,
+  CONSTRAINT COMMENT_USER FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );

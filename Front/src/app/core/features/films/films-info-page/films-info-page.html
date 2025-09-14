@@ -4,7 +4,7 @@
       <div class="left-col">
         <div class="filmy">
           <div class="photo-fimlu">
-            <img class="phpto-film-img" [src]="film.obraz_filmu" alt="Zdjęcie filmu">
+            <img class="phpto-film-img" [src]="film.film_image" alt="Zdjęcie filmu">
           </div>
           <div class="film-info">
           <span>
@@ -12,9 +12,9 @@
               <img src="./assets/star.png" alt="Star">
             }
           </span>
-            <div class="title">Nazwa: {{ film.nazwa }}</div>
-            <div class="gatunek">Gatunek: {{ film.gatunek }}</div>
-            <div class="year">Rok: {{ film.rok }}</div>
+            <div class="title">Nazwa: {{ film.title }}</div>
+            <div class="gatunek">Gatunek: {{ film.genre }}</div>
+            <div class="year">Rok: {{ film.year }}</div>
             <div class="ocena"></div>
             @if (dod) {
               <div class="wiencej">
@@ -46,7 +46,7 @@
           <iframe class="iframe-block" [src]="safeTrailerUrl" allowfullscreen></iframe>
         </div>
         <div class="opis">
-          <div class="description">Opis: {{ film.opis }}</div>
+          <div class="description">Opis: {{ film.description }}</div>
         </div>
         <div class="komentarze">
           Komentarze:

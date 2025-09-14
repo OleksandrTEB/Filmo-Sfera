@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {filmInfo, Comment} from '../../../models/interfaces';
+import {FilmInfo, Comment} from '../../../models/interfaces';
 import {Loadfilms} from '../../../services/loadfilms/loadfilms';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {CommentService} from '../../../services/comments/comment.service';
@@ -17,7 +17,7 @@ import {Subscription} from 'rxjs';
 })
 export class FilmsInfoPage implements OnInit {
   filmId!: number;
-  film!: filmInfo;
+  film!: FilmInfo;
   safeTrailerUrl!: SafeResourceUrl;
 
   comments: Comment[] = [];
@@ -30,7 +30,7 @@ export class FilmsInfoPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    public Loadfilms: Loadfilms,
+    public LoadFilms: Loadfilms,
     public sanitizer: DomSanitizer,
     public cdr: ChangeDetectorRef,
     public Comment: CommentService,
@@ -70,8 +70,8 @@ export class FilmsInfoPage implements OnInit {
   play(id: number) {
     this.PreloaderService.show()
 
-    setTimeout(() => {
-      this.router.navigate(['/watch', id]);
+    setTimeout(async () => {
+      await this.router.navigate(['/watch', id]);
       this.PreloaderService.hide()
     }, 2000)
   }
@@ -91,7 +91,7 @@ export class FilmsInfoPage implements OnInit {
     })
 
     this.filmId = +this.route.snapshot.paramMap.get('id')!;
-    this.film = await this.Loadfilms.getFilmById(this.filmId);
+    this.film = await this.LoadFilms.getFilmById(this.filmId);
 
 
     this.safeTrailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.film.trailer)
@@ -99,7 +99,7 @@ export class FilmsInfoPage implements OnInit {
     const response = await this.Comment.getComments();
     this.comments = response.comments;
 
-    this.ocena = this.film.ocena
+    this.ocena = this.film.rating
     this.arrOcena = Array.from({ length: this.ocena }, (_, i) => i)
 
     this.cdr.detectChanges()

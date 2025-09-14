@@ -144,71 +144,8 @@ header {
               background-color: #151b23;
             }
           }
-
-          .log-out {
-            font-weight: 500;
-            color: #ce3030;
-          }
         }
       }
-    }
-  }
-}
-
-main {
-  .change-name {
-    @include base-bg-and-border;
-    border-radius: 5px;
-    padding: 1rem;
-    position: fixed;
-    left: 50%;
-    top: 130px;
-    transform: translate(-50%, -50%);
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 1rem auto;
-
-    input {
-      @include base-bg-and-border;
-      outline: none;
-      padding: 5px 12px;
-      border-radius: 5px;
-      margin-top: 5px;
-    }
-
-    .approved {
-      @include base-button;
-      margin: 16px 0 0;
-    }
-  }
-
-  .form-avatar {
-    position: fixed;
-    top: 150px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    border: 1px solid #3d444db3;
-    background-color: #151b23;
-    padding: 1rem;
-    border-radius: 5px;
-    z-index: 1000;
-
-    label {
-      margin: 0 0 8px 0;
-    }
-
-    .avatar {
-      background: #ff0000;
-    }
-
-    .send-avatar {
-      margin: 16px 0 0;
-      @include base-button;
     }
   }
 }

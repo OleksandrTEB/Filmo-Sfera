@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { FilmInfo } from '../../../../../models/interfaces';
+import {FilmInfo} from '../../../../../models/interfaces';
 import {Router} from '@angular/router';
 import {PreloaderService} from '../../../../../services/preloader/preloader';
 
 @Component({
   selector: 'app-film',
   templateUrl: './film.html',
-  styleUrls: ['./film.scss']
+  styleUrl: './film.scss'
 })
 export class FilmComponent implements OnInit {
   @Input() film!: FilmInfo;
@@ -17,13 +17,13 @@ export class FilmComponent implements OnInit {
   ) {}
 
 
-  ocena: number = 0;
-  arrOcena: number[] = []
+  rating: number = 0;
+  arrRating: number[] = []
 
   ngOnInit () {
-    this.ocena = this.film.ocena
+    this.rating = this.film.rating
 
-    this.arrOcena = Array.from({ length: this.ocena }, (_,i) => i)
+    this.arrRating = Array.from({ length: this.rating }, (_,i) => i)
   }
 
   async filmInfo(id: number) {

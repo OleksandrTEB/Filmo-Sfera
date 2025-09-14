@@ -1,6 +1,5 @@
 import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { App } from './app';
 import { StartPage } from './core/features/start-page/start-page';
 import { registerPage } from './core/features/auth/register-page/register-page';
@@ -20,6 +19,7 @@ import { RouterModule } from '@angular/router';
 import { EventFilm } from './core/features/profile/eventfilm/eventfilm';
 import { Verified } from './core/features/auth/verificted/verified.component';
 import {PreloaderComponent} from './core/features/preloader/preloader';
+import { Settings } from './core/features/home-page/settings/settings';
 
 
 @NgModule({
@@ -33,6 +33,7 @@ import {PreloaderComponent} from './core/features/preloader/preloader';
     Profile,
     Review,
     Verified,
+    Settings,
   ],
   imports: [
     PreloaderComponent,

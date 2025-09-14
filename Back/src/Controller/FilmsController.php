@@ -15,10 +15,10 @@ class FilmsController
     $imageBase64 = base64_decode($imageFilm);
     $name = $input['name'];
     $title = $input['title'];
-    $gatunek = $input['gatunek'];
+    $genre = $input['genre'];
     $year = $input['year'];
-    $opis = $input['opis'];
-    $trailer = $input['zwiastun'];
+    $description = $input['description'];
+    $trailer = $input['trailer'];
     $video = $input['video'];
 
     $path = BaseUrlFunction::$baseUrl . "films/";
@@ -29,13 +29,13 @@ class FilmsController
 
     $pdo = Database::connect();
 
-    $stmt = $pdo->prepare('INSERT INTO films (nazwa, rok, gatunek, opis, obraz_filmu, trailer, video) VALUES (:nazwa, :rok, :gatunek, :opis, :obraz_filmu, :trailer, :video)');
+    $stmt = $pdo->prepare('INSERT INTO films (title, year, genre, description, film_image, trailer, video) VALUES (:title, :year, :genre, :description, :film_image, :trailer, :video)');
     $stmt->execute([
-      'nazwa' => $title,
-      'rok' => $year,
-      'gatunek' => $gatunek,
-      'opis' => $opis,
-      'obraz_filmu' => $filmPath,
+      'title' => $title,
+      'year' => $year,
+      'genre' => $genre,
+      'description' => $description,
+      'film_image' => $filmPath,
       'trailer' => $trailer,
       'video' => $video,
     ]);
@@ -47,7 +47,7 @@ class FilmsController
   }
 
 
-  public function loadfilm(): void
+  public function loadFilm(): void
   {
 
     $pdo = Database::connect();
@@ -57,14 +57,11 @@ class FilmsController
     $films = $stmt->fetchAll();
 
     foreach ($films as &$film) {
-      $obraz_filmu = $film['obraz_filmu'];
-
-      $imageData = file_get_contents($obraz_filmu);
+      $imageData = file_get_contents($film['film_image']);
       $base64 = base64_encode($imageData);
-      $mimeType = mime_content_type($obraz_filmu);
-      $obraz_filmu = 'data:' . $mimeType . ';base64,' . $base64;
+      $film_image = 'data:image/*;base64,' . $base64;
 
-      $film['obraz_filmu'] = $obraz_filmu;
+      $film['film_image'] = $film_image;
     }
     unset($film);
 
@@ -76,7 +73,7 @@ class FilmsController
   }
 
 
-  public function searchfilm(): void
+  public function searchFilm(): void
   {
     $input = json_decode(file_get_contents('php://input'), true);
 
@@ -86,39 +83,38 @@ class FilmsController
 
     $stmt = $pdo->prepare('SELECT * FROM films WHERE id = :id');
     $stmt->execute(['id' => $film_id]);
-    $films = $stmt->fetch();
+    $film = $stmt->fetch();
 
-    $film_id = $films['id'];
+    $film_id = $film['id'];
     $_SESSION['film_id'] = $film_id;
-    $nazwa = $films['nazwa'];
-    $rok = $films['rok'];
-    $gatunek = $films['gatunek'];
-    $opis = $films['opis'];
-    $obraz_filmu = $films['obraz_filmu'];
+    $title = $film['title'];
+    $year = $film['year'];
+    $genre = $film['genre'];
+    $description = $film['description'];
+    $film_image = $film['film_image'];
 
 
-    $imageData = file_get_contents($obraz_filmu);
+    $imageData = file_get_contents($film_image);
     $base64 = base64_encode($imageData);
-    $mimeType = mime_content_type($obraz_filmu);
-    $obraz_filmu = 'data:' . $mimeType . ';base64,' . $base64;
+    $film_image = 'data:image/*;base64,' . $base64;
 
 
-    $trailer = $films['trailer'];
-    $video = $films['video'];
-    $ocena = $films['ocena'];
+    $trailer = $film['trailer'];
+    $video = $film['video'];
+    $rating = $film['rating'];
 
     http_response_code(200);
     echo json_encode([
       'success' => true,
       'id' => $film_id,
-      'nazwa' => $nazwa,
-      'rok' => $rok,
-      'gatunek' => $gatunek,
-      'opis' => $opis,
-      'obraz_filmu' => $obraz_filmu,
+      'title' => $title,
+      'year' => $year,
+      'genre' => $genre,
+      'description' => $description,
+      'film_image' => $film_image,
       'trailer' => $trailer,
       'video' => $video,
-      'ocena' => $ocena,
+      'rating' => $rating,
     ]);
   }
 }
