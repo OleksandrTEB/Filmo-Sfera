@@ -23,7 +23,7 @@ export class ClassWatch implements OnInit {
   arrStars: number[] = [1, 2, 3, 4, 5];
 
   msg: string = 'getrewiev'
-  private wsSubscription!: Subscription;
+  wsSubscription!: Subscription;
 
   constructor(
     public Loadfilms: Loadfilms,
@@ -59,7 +59,6 @@ export class ClassWatch implements OnInit {
     const response = await this.ReviewServices.getReview();
     this.reviews = response.reviews;
     this.cdr.detectChanges()
-
   }
 
   addReview = false;

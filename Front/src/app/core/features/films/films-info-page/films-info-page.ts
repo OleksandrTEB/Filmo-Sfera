@@ -26,7 +26,7 @@ export class FilmsInfoPage implements OnInit {
   arrOcena: number[] = [];
 
   msg: string = 'getcomment'
-  private wsSubscription!: Subscription;
+  wsSubscription!: Subscription;
 
   constructor(
     private route: ActivatedRoute,

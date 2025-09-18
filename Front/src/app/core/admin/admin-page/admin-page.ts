@@ -29,10 +29,10 @@ export class AdminPage {
   onFilmPhoto(event: Event) {
 
     const input = event.target as HTMLInputElement;
-    if (input.files?.length) {
+
+    if (input.files) {
 
       this.selectedFile = input.files[0];
-      this.filmPhoto = `./assets/photo-film/${this.selectedFile.name}`;
       const reader = new FileReader();
 
       reader.onload = () => {

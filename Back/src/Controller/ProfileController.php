@@ -86,7 +86,6 @@ class ProfileController
 
     public function displayAvatar(): void
     {
-
         $imageData = file_get_contents($_SESSION['avatar']);
         $base64 = base64_encode($imageData);
         $fullAvatar = $base64;

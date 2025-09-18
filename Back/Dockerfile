@@ -12,10 +12,10 @@ RUN apt-get update \
 RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd \
     && docker-php-ext-install pdo pdo_mysql mysqli zip
 
-# Устанавливаем Composer из официального образа
+
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Рабочая директория
+
 WORKDIR /app
 
 
@@ -32,4 +32,4 @@ ENV PORT=80
 EXPOSE 80
 
 
-CMD ["php", "-S", "0.0.0.0:80", "public/api.php"]
+CMD ["php", "-S", "0.0.0.0:80"]

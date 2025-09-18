@@ -58,6 +58,8 @@ export class Settings implements OnInit {
     await this.uploadAvatar();
 
     this.cdr.detectChanges()
+
+    window.location.reload();
   }
 
   selectedFile: File | null = null;

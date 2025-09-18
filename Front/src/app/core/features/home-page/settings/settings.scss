@@ -95,6 +95,13 @@ main {
                 padding: 5px 12px;
                 width: 70px;
                 border-radius: 5px;
+                &:hover {
+                  background-color: rgb(74, 74, 74);
+                }
+                &:active {
+                  background-color: rgb(53, 53, 53);
+                }
+
                 input {
                   position: absolute;
                   width: 0;

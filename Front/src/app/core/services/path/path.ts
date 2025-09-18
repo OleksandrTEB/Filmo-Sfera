@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class Path {
   constructor() {}
-  baseUrl: string = 'http://localhost/Filmo-Sfera/Back/public/api.php/';
+  baseUrl: string = 'http://localhost:4000/public/api.php/';
 
 //   WsUrl
   baseUrlWs: string = 'ws://192.168.0.135:8080/';
