@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
-import {Comment} from '../../../../models/interfaces';
+import { Comment } from '../../../../models/interfaces';
 import {CommentService} from '../../../../services/comments/comment.service';
 import {AdminGuard} from '../../../../guard/admin-guard';
 import {FilmsInfoPage} from '../films-info-page';
@@ -17,10 +17,10 @@ export class Comments implements OnInit{
 
   constructor(
     public CommentService: CommentService,
+    public FilmsInfoPage: FilmsInfoPage,
     public cdr: ChangeDetectorRef,
-    public AdminGuard: AdminGuard,
-    public FilmsInfoPage: FilmsInfoPage
-    ) {
+    public AdminGuard: AdminGuard
+  ) {
   }
 
 
@@ -38,10 +38,8 @@ export class Comments implements OnInit{
   }
 
   async deleteComment() {
-    await this.CommentService.deleteComment(this.comment.id);
-
-    await this.FilmsInfoPage.getComm();
-
-    this.cdr.detectChanges();
+    await this.CommentService.deleteComment(this.comment.id)
+    await this.FilmsInfoPage.getComm()
+    this.cdr.detectChanges()
   }
 }

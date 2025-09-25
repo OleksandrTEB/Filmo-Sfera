@@ -45,7 +45,7 @@ CREATE TABLE films (
 );
 
 INSERT INTO `films` (`id`, `title`, `year`, `genre`, `description`, `film_image`, `trailer`, `video`) VALUES
-  (1, 'Pirates of the Caribbean', '2003', 'Pirats', 'The Curse of the Black Pearl', '../assets/films/piraty1.webp', 'https://player.vimeo.com/video/1104458644', 'https://player.vimeo.com/video/1104458644');
+  (1, 'Pirates of the Caribbean', '2003', 'Pirats', 'The Curse of the Black Pearl', '../assets/films/piraty1.webp', 'https://www.youtube.com/embed/a27YX-ToMM4?si=mzkNkwNw_IzQDp19', 'https://www.youtube.com/embed/NrNejxB91bA?si=giRw0K2vmESkHgU_');
 
 
 CREATE TABLE review (

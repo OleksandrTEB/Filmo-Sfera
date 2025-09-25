@@ -10,10 +10,19 @@ main {
     gap: 1rem;
     max-width: 1280px;
     margin: 0 auto;
+    @include moreAdaptive(1400px) {
+      width: calc(100% - 10%);
+    };
+    @include moreAdaptive(820px) {
+      @include flex-column;
+    };
 
     .variable {
       @include flex-column;
       gap: 5px;
+      @include moreAdaptive(820px) {
+        align-items: center;
+      };
 
       .variables-setting {
         @include flex-row;
@@ -60,6 +69,10 @@ main {
     .value {
       @include flex-column;
       width: 100%;
+      @include moreAdaptive(820px) {
+        align-items: center;
+      };
+
       .description {
         height: 3rem;
         font-size: 20px;
@@ -75,6 +88,9 @@ main {
           @include flex-row;
           gap: 4rem;
           margin-bottom: 3rem;
+          @include moreAdaptive(470px) {
+            @include flex-column;
+          };
 
           .avatar-container {
             @include flex-column;

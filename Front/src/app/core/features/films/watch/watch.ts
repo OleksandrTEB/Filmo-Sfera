@@ -34,6 +34,8 @@ export class ClassWatch implements OnInit {
   async getReview() {
     const response = await this.ReviewServices.getReview();
     this.reviews = response.reviews;
+
+    this.cdr.detectChanges()
   }
 
   async ngOnInit() {
@@ -44,6 +46,8 @@ export class ClassWatch implements OnInit {
 
 
     await this.getReview()
+
+    this.cdr.detectChanges()
   }
 
   addReview = false;
@@ -74,5 +78,7 @@ export class ClassWatch implements OnInit {
     this.selectedRating = 0;
 
     await this.getReview()
+
+    this.cdr.detectChanges()
   }
 }

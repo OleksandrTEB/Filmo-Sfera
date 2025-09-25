@@ -73,13 +73,13 @@ export class FilmsInfoPage implements OnInit {
   async getComm() {
     const response = await this.Comment.getComments();
     this.comments = response.comments;
+
+    this.cdr.detectChanges();
   }
 
   async ngOnInit() {
     this.filmId = +this.route.snapshot.paramMap.get('id')!;
     this.film = await this.LoadFilms.getFilmById(this.filmId);
-
-    await this.getComm();
 
     this.safeTrailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.film.trailer)
 
@@ -88,6 +88,8 @@ export class FilmsInfoPage implements OnInit {
 
     this.ocena = this.film.rating
     this.arrOcena = Array.from({ length: this.ocena }, (_, i) => i)
+
+    await this.getComm();
 
     this.cdr.detectChanges()
   }
