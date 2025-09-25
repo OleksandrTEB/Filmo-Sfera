@@ -25,7 +25,7 @@ Na sam koniec żeby urochomić musisz wpisać w tym samym terminalu co `npm i`: 
 
 Potszebny on jest dla tego zeby ręcznie nie pobierać zalezniisci.
 
-Żeby ich pobrać trzeba w katalogu `backend` wpisać w terminalu `composer install`.
+Żeby ich pobrać trzeba w katalogu `backend` wpisać w terminalu `composer update`.
 
 Zamieszczone tam sa `autoloader`, i `dotenv`
 
