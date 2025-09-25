@@ -15,13 +15,6 @@ services:
       - my_network
     volumes:
       - db_images:/app/assets/avatars
-
-  socket:
-    image: oleksandrteb/websock
-    ports:
-      - "8080:8080"
-    restart: unless-stopped
-
   db:
     image: oleksandrteb/custom_sql
     volumes:

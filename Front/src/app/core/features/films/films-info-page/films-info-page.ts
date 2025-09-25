@@ -5,8 +5,6 @@ import {Loadfilms} from '../../../services/loadfilms/loadfilms';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {CommentService} from '../../../services/comments/comment.service';
 import {PreloaderService} from '../../../services/preloader/preloader';
-import {ConnSocket} from '../../../services/WebService/WebService';
-import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -25,9 +23,6 @@ export class FilmsInfoPage implements OnInit {
   ocena: number = 0;
   arrOcena: number[] = [];
 
-  msg: string = 'getcomment'
-  wsSubscription!: Subscription;
-
   constructor(
     private route: ActivatedRoute,
     public LoadFilms: Loadfilms,
@@ -36,7 +31,6 @@ export class FilmsInfoPage implements OnInit {
     public Comment: CommentService,
     private PreloaderService: PreloaderService,
     private router: Router,
-    private connSocket: ConnSocket
   ) {
   }
 
@@ -62,7 +56,7 @@ export class FilmsInfoPage implements OnInit {
 
     this.text = '';
 
-    await this.connSocket.connSocket({type: this.msg});
+    await this.getComm();
     this.cdr.detectChanges();
   }
 
@@ -82,17 +76,10 @@ export class FilmsInfoPage implements OnInit {
   }
 
   async ngOnInit() {
-    await this.connSocket.connSocket({type: this.msg});
-    this.wsSubscription = this.connSocket.messages$.subscribe(async (data) => {
-      if (data.type === 'getcomment') {
-        await this.getComm();
-        this.cdr.detectChanges();
-      }
-    })
-
     this.filmId = +this.route.snapshot.paramMap.get('id')!;
     this.film = await this.LoadFilms.getFilmById(this.filmId);
 
+    await this.getComm();
 
     this.safeTrailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.film.trailer)
 

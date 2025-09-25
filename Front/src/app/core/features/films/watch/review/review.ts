@@ -2,7 +2,7 @@ import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {listReview} from '../../../../models/interfaces';
 import {AdminGuard} from '../../../../guard/admin-guard';
 import {ReviewServices} from '../../../../services/review/review';
-import {ConnSocket} from '../../../../services/WebService/WebService';
+import {ClassWatch} from '../watch';
 
 @Component({
   selector: 'app-review',
@@ -18,13 +18,11 @@ export class Review implements OnInit {
   rating: number = 1;
   arrRating: number[] = [];
 
-  msg: string = 'getrewiev';
-
   constructor(
     public ReviewServices: ReviewServices,
+    public ClassWatch: ClassWatch,
     public cdr: ChangeDetectorRef,
-    public AdminGuard: AdminGuard,
-    private connSocket: ConnSocket
+    public AdminGuard: AdminGuard
   ) {
   }
 
@@ -53,7 +51,9 @@ export class Review implements OnInit {
 
   async deleteReview() {
     await this.ReviewServices.deleteReview(this.review.id);
-    this.connSocket.messages$.next({type: this.msg});
-    await this.connSocket.connSocket({type: this.msg});
+
+    await this.ClassWatch.getReview();
+
+    this.cdr.detectChanges();
   }
 }

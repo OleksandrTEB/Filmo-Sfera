@@ -268,8 +268,8 @@ class AuthController
     {
         $pdo = Database::connect();
         $mail = new PHPMailer(true);
-        $email = $_SESSION['email'];
-        $username = $_SESSION['username'];
+        $email = $_SESSION['email'] ?? null;
+        $username = $_SESSION['username'] ?? null;
 
         $code = random_int(100000, 999999);
         $stmt = $pdo->prepare('UPDATE users SET code = :code WHERE email = :email');
@@ -293,7 +293,7 @@ class AuthController
 
             $mail->CharSet = 'UTF-8';
             $mail->isHTML(true);
-            $mail->Subject = 'Verification to Filmo-Sfera';
+            $mail->Subject = 'Vryfikacja do Filmo-Sfera';
             $mail->Body = '
                       <!DOCTYPE html>
                       <html lang="pl">
@@ -332,7 +332,6 @@ class AuthController
                       </html>
                       ';
 
-            $mail->AltBody = 'To jest tekstowa wersja wiadomości.';
             $mail->send();
 
             echo json_encode([
@@ -362,7 +361,7 @@ class AuthController
 
         $userCode = $input['code'];
 
-        $stmt = $pdo->prepare('SELECT * FROM users WHERE code = :code');
+        $stmt = $pdo->prepare('SELECT * FROM users WHERE code = :code LIMIT 1');
         $stmt->execute(['code' => $userCode]);
 
         if ($stmt->fetch()) {

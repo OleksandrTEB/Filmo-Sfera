@@ -2,8 +2,7 @@ import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {Comment} from '../../../../models/interfaces';
 import {CommentService} from '../../../../services/comments/comment.service';
 import {AdminGuard} from '../../../../guard/admin-guard';
-import {ConnSocket} from '../../../../services/WebService/WebService';
-import {Subscription} from 'rxjs';
+import {FilmsInfoPage} from '../films-info-page';
 
 @Component({
   selector: 'app-comments',
@@ -15,13 +14,12 @@ export class Comments implements OnInit{
   @Input() public comment!: Comment;
 
   result = false;
-  msg: string = 'getcomment';
 
   constructor(
     public CommentService: CommentService,
     public cdr: ChangeDetectorRef,
     public AdminGuard: AdminGuard,
-    private connSocket: ConnSocket
+    public FilmsInfoPage: FilmsInfoPage
     ) {
   }
 
@@ -41,7 +39,9 @@ export class Comments implements OnInit{
 
   async deleteComment() {
     await this.CommentService.deleteComment(this.comment.id);
-    this.connSocket.messages$.next({type: this.msg})
-    await this.connSocket.connSocket({type: this.msg});
+
+    await this.FilmsInfoPage.getComm();
+
+    this.cdr.detectChanges();
   }
 }

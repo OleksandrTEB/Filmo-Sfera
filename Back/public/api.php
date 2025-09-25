@@ -4,9 +4,7 @@ session_start();
 
 $allowed_origins = [
   'http://localhost:4200',
-  'http://192.168.0.135',
-  'http://localhost:8080',
-  'http://localhost:8000',
+  'http://192.168.0.135'
 ];
 
 if(isset($_SERVER['HTTP_ORIGIN']) && in_array($_SERVER['HTTP_ORIGIN'], $allowed_origins)) {

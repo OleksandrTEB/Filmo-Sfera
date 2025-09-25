@@ -4,8 +4,6 @@ import {FilmInfo, listReview} from '../../../models/interfaces';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {ReviewServices} from '../../../services/review/review';
-import {ConnSocket} from '../../../services/WebService/WebService';
-import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-watch',
@@ -22,8 +20,6 @@ export class ClassWatch implements OnInit {
   reviews!: listReview[];
   arrStars: number[] = [1, 2, 3, 4, 5];
 
-  msg: string = 'getrewiev'
-  wsSubscription!: Subscription;
 
   constructor(
     public Loadfilms: Loadfilms,
@@ -32,33 +28,22 @@ export class ClassWatch implements OnInit {
     public sanitizer: DomSanitizer,
     public ReviewServices: ReviewServices,
     public cdr: ChangeDetectorRef,
-    private connSocket: ConnSocket
   ) {
   }
 
   async getReview() {
     const response = await this.ReviewServices.getReview();
     this.reviews = response.reviews;
-    this.cdr.detectChanges()
   }
 
   async ngOnInit() {
-    await this.connSocket.connSocket({type: this.msg});
-    this.wsSubscription = this.connSocket.messages$.subscribe(async (data) => {
-      if (data.type === 'getrewiev') {
-        await this.getReview();
-        this.cdr.detectChanges();
-      }
-    })
-
     this.filmId = +this.route.snapshot.paramMap.get('id')!;
     this.film = await this.Loadfilms.getFilmById(this.filmId);
 
     this.video = this.sanitizer.bypassSecurityTrustResourceUrl(this.film.video)
 
-    const response = await this.ReviewServices.getReview();
-    this.reviews = response.reviews;
-    this.cdr.detectChanges()
+
+    await this.getReview()
   }
 
   addReview = false;
@@ -88,7 +73,6 @@ export class ClassWatch implements OnInit {
     this.text = '';
     this.selectedRating = 0;
 
-    await this.connSocket.connSocket({type: this.msg});
     await this.getReview()
   }
 }
