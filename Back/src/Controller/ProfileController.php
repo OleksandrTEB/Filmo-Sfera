@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Database\Database;
-use App\BaseUrl\BaseUrlFunction;
 use PDO;
 
 class ProfileController
@@ -48,7 +47,7 @@ class ProfileController
         $image = base64_decode($imageBase64);
 
 
-        $path = BaseUrlFunction::$baseUrl . "avatars/";
+        $path = "../assets/avatars/";
         $imageName = $_SESSION['token'] . $name;
         $avatarPath = $path . $imageName;
 
@@ -62,7 +61,7 @@ class ProfileController
 
 
         if ($oldAvatar && file_exists($oldAvatar)) {
-            if ($oldAvatar === BaseUrlFunction::$baseUrl . "avatars/defaultAvatar.png") {
+            if ($oldAvatar === "../assets/avatars/defaultAvatar.png") {
             } else {
                 unlink($oldAvatar);
             }

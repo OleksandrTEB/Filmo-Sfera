@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Database\Database;
-use App\BaseUrl\BaseUrlFunction;
 
 class FilmsController
 {
@@ -21,7 +20,7 @@ class FilmsController
     $trailer = $input['trailer'];
     $video = $input['video'];
 
-    $path = BaseUrlFunction::$baseUrl . "films/";
+    $path = "../assets/films/";
     $imageName = $name;
     $filmPath = $path . $imageName;
 
