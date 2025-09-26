@@ -7,7 +7,7 @@
 #### Na sam początek trzeba pobrać `node.js` 20.+ wersji.
 
 Po zainstalowaniu musisz pobrać Angular globalnie, w terminalu `cmd` lub `powershell` trzeba za pomocą `npm`
-wpisać `npm install -g @angular/cli`, jeżeli wystpia bląd to trzeba wpisać do powershell `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+wpisać `npm install -g @angular/cli`, jeżeli wystąpia bląd to trzeba wpisać do powershell `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 `, to żadanie pozwoli kożystać z pakietów `npm`
 
 Następnym krokiem będzie zainstalować zalezności.
