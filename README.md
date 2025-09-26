@@ -7,15 +7,19 @@
 #### Na sam początek trzeba pobrać `node.js` 20.+ wersji.
 
 Po zainstalowaniu musisz pobrać Angular globalnie, w terminalu `cmd` lub `powershell` trzeba za pomocą `npm`
-wpisać `npm install -g @angular/cli`
+wpisać `npm install -g @angular/cli`, jeżeli wystpia bląd to trzeba wpisać do powershell `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+`, to żadanie pozwoli kożystać z pakietów `npm`
 
 Następnym krokiem będzie zainstalować zalezności.
 
-W kożeni katalogu gdżie znajduje się `package.json` musisz otwożyć dowolny terminal i urochomić `npm i` to samo co i `npm install`.
+W kożeni katalogu gdżie znajduje się `package.json` musisz otwożyć dowolny terminal i urochomić `npm i` to samo co i
+`npm install`.
 
-Ten prjekt musi znajdować się w katalogu XAMPA `htdocs` poniewaz wszystkie zadania maja sciezke `http://localhost/angular-filmo-sfera-dev/src/backend/public/api.php/`
+Ten prjekt musi znajdować się w katalogu XAMPA `htdocs` poniewaz wszystkie zadania maja sciezke
+`http://localhost/angular-filmo-sfera-dev/src/backend/public/api.php/`
 
-Na sam koniec żeby urochomić musisz wpisać w tym samym terminalu co `npm i`: `ng serve` wtedy frontend będzie dostępny na `http://localhost:4200`
+Na sam koniec żeby urochomić musisz wpisać w tym samym terminalu co `npm i`: `ng serve` wtedy frontend będzie dostępny
+na `http://localhost:4200`
 
 ### Dla frontendowej częsci to tyle.
 
