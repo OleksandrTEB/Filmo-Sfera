@@ -45,11 +45,24 @@ export class Settings implements OnInit {
 
 
   async ngOnInit() {
-    this.avatar = 'data:image/*;base64,' + await this.UserInfoService.displayAvatar()
-    const response = await this.UserInfoService.getUserName()
-    this.username = response.username;
+    if (!localStorage.getItem('avatar')) {
+      this.avatar = 'data:image/*;base64,' + await this.UserInfoService.displayAvatar()
 
-    this.cdr.detectChanges();
+      localStorage.setItem('avatar', this.avatar);
+    } else {
+      this.avatar = localStorage.getItem('avatar')!;
+    }
+
+    if (!localStorage.getItem('username')) {
+      const response = await this.UserInfoService.getUserName()
+      this.username = response.username;
+
+      localStorage.setItem('username', this.username);
+    } else {
+      this.username = localStorage.getItem('username')!;
+    }
+
+    this.cdr.detectChanges()
   }
 
   async saveAll() {

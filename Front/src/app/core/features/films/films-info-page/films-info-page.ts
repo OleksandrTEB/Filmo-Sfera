@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FilmInfo, Comment} from '../../../models/interfaces';
-import {Loadfilms} from '../../../services/loadfilms/loadfilms';
+import {Films} from '../../../services/films/films';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {CommentService} from '../../../services/comments/comment.service';
 import {PreloaderService} from '../../../services/preloader/preloader';
@@ -25,7 +25,7 @@ export class FilmsInfoPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    public LoadFilms: Loadfilms,
+    public Films: Films,
     public sanitizer: DomSanitizer,
     public cdr: ChangeDetectorRef,
     public Comment: CommentService,
@@ -79,7 +79,7 @@ export class FilmsInfoPage implements OnInit {
 
   async ngOnInit() {
     this.filmId = +this.route.snapshot.paramMap.get('id')!;
-    this.film = await this.LoadFilms.getFilmById(this.filmId);
+    this.film = await this.Films.getFilmById(this.filmId);
 
     this.safeTrailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.film.trailer)
 

@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {Loadfilms} from '../../../services/loadfilms/loadfilms';
+import {Films} from '../../../services/films/films';
 import {FilmInfo, listReview} from '../../../models/interfaces';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
@@ -22,7 +22,7 @@ export class ClassWatch implements OnInit {
 
 
   constructor(
-    public Loadfilms: Loadfilms,
+    public Films: Films,
     public route: ActivatedRoute,
     public router: Router,
     public sanitizer: DomSanitizer,
@@ -40,7 +40,7 @@ export class ClassWatch implements OnInit {
 
   async ngOnInit() {
     this.filmId = +this.route.snapshot.paramMap.get('id')!;
-    this.film = await this.Loadfilms.getFilmById(this.filmId);
+    this.film = await this.Films.getFilmById(this.filmId);
 
     this.video = this.sanitizer.bypassSecurityTrustResourceUrl(this.film.video)
 

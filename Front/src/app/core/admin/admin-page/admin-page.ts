@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
-import {UploadFilmsService} from '../../services/upload-films/film.service';
+import {Films} from '../../services/films/films';
 
 @Component({
   selector: 'app-admin',
@@ -8,10 +8,8 @@ import {UploadFilmsService} from '../../services/upload-films/film.service';
   styleUrl: './admin-page.scss'
 })
 export class AdminPage {
-  filmPhoto = ''
-
   constructor(
-    public UploadFilmsService: UploadFilmsService,
+    public Films: Films,
     public cdr: ChangeDetectorRef,
     ) {}
 
@@ -47,7 +45,7 @@ export class AdminPage {
 
   async uploadFilm() {
     if (!this.base64Image || !this.selectedFile) return;
-    await this.UploadFilmsService.uploadFIlm(
+    await this.Films.uploadFIlm(
         this.base64Image,
         this.selectedFile.name,
         this.title,

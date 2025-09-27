@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { FilmInfo } from '../../../models/interfaces';
-import { Loadfilms } from '../../../services/loadfilms/loadfilms';
+import {Films} from '../../../services/films/films';
 import {FilmComponent} from './film/film/film';
 
 @Component({
@@ -9,18 +9,18 @@ import {FilmComponent} from './film/film/film';
   imports: [
     FilmComponent
   ],
-  styleUrls: ['./films-page.scss']
+  styleUrl: './films-page.scss'
 })
 export class FilmsPage implements OnInit {
   films: FilmInfo[] = [];
 
   constructor(
-    private loadFilms: Loadfilms,
+    private Films: Films,
     public cdr: ChangeDetectorRef
   ) {}
 
   async ngOnInit() {
-    const response = await this.loadFilms.loadFilms();
+    const response = await this.Films.loadFilms();
     this.films = response.films;
     this.cdr.detectChanges();
   }

@@ -33,6 +33,6 @@ na `http://localhost:4200`
 
 Z tej strony pobież composer [Przejdź](https://getcomposer.org/download/).
 
-Potszebny on jest dla tego zeby ręcznie nie pobierać zalezniisci.
+Potszebny on jest dla tego żeby ręcznie nie pobierać zalezności.
 
 Żeby ich pobrać trzeba w katalogu `Back` wpisać w terminalu `composer update`.

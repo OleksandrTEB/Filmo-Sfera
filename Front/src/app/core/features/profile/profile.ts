@@ -21,16 +21,26 @@ export class Profile implements OnInit {
   ) {}
 
   async ngOnInit() {
-    const response: CountReview = await this.UserInfoService.countReview()
-    this.review = response.count_reviews;
+
+    if (!localStorage.getItem('CountReview')) {
+      const response: CountReview = await this.UserInfoService.countReview()
+      this.review = response.count_reviews;
+
+      const data = JSON.stringify(this.review);
+      localStorage.setItem('CountReview', data);
+    } else {
+      this.review = +localStorage.getItem('CountReview')!;
+    }
+
+    if (this.review != 0) {
+      this.is = true;
+    }
 
     const respon: UserFilms = await this.UserInfoService.userFilms()
 
     this.userFilms = respon.films
 
-    if (response.count_reviews != 0) {
-      this.is = true;
-    }
+
 
     this.cdr.detectChanges();
   }
