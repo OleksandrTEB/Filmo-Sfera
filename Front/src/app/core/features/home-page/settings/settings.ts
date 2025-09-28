@@ -37,6 +37,9 @@ export class Settings implements OnInit {
   async logout() {
     this.PreloaderService.show()
 
+    localStorage.removeItem('avatar');
+    localStorage.removeItem('username');
+
     setTimeout(() => {
       this.auth.logout();
       this.PreloaderService.hide()
@@ -67,6 +70,7 @@ export class Settings implements OnInit {
 
   async saveAll() {
     await this.UserInfoService.changeUsername(this.username)
+    localStorage.setItem('username', this.username);
 
     await this.uploadAvatar();
 
@@ -99,6 +103,8 @@ export class Settings implements OnInit {
 
   async uploadAvatar() {
     if (!this.base64Image || !this.selectedFile) return;
+
+    localStorage.setItem('avatar', 'data:image/*;base64,' + this.base64Image);
 
     await this.UserInfoService.uploadAvatar(
       this.base64Image,

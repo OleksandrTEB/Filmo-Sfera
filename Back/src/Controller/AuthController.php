@@ -145,7 +145,7 @@ class AuthController
             http_response_code(400);
             echo json_encode([
                 'success' => false,
-                'messageEmail' => 'Invalid email address',
+                'messageEmail' => 'Nieprawidłowy adres e-mail.',
                 'isErrorEmail' => true,
             ]);
             return;
@@ -159,7 +159,7 @@ class AuthController
             http_response_code(409);
             echo json_encode([
                 'success' => false,
-                'messageAlready' => 'A user with this email already exists.',
+                'messageAlready' => 'Użytkownik z tym adresem e-mail już istnieje.',
                 'isErrorAlready' => true,
             ]);
             return;
@@ -169,17 +169,17 @@ class AuthController
             http_response_code(400);
             echo json_encode([
                 'success' => false,
-                'messagePassword' => 'Password must be at least 8 characters.',
+                'messagePassword' => 'Hasło musi zawierać co najmniej 8 znaków.',
                 'isErrorPassword' => true,
             ]);
             return;
         }
 
-        if (!preg_match('/\d/', $password)) {
+        if (!preg_match('/^(?=.*\d)/', $password)) {
             http_response_code(400);
             echo json_encode([
                 'success' => false,
-                'messagePassword' => 'The password must contain at least one digit.',
+                'messagePassword' => 'Hasło musi zawierać co najmniej jedną cyfrę.',
                 'isErrorPassword' => true,
             ]);
             return;
@@ -189,7 +189,7 @@ class AuthController
             http_response_code(400);
             echo json_encode([
                 'success' => false,
-                'messagePassword' => 'The password must contain at least one lowercase letter.',
+                'messagePassword' => 'Hasło musi zawierać co najmniej jedną małą literę.',
                 'isErrorPassword' => true,
             ]);
             return;
@@ -199,17 +199,17 @@ class AuthController
             http_response_code(400);
             echo json_encode([
                 'success' => false,
-                'messagePassword' => 'The password must contain at least one uppercase letter.',
+                'messagePassword' => 'Hasło musi zawierać co najmniej jedną wielką literę.',
                 'isErrorPassword' => true,
             ]);
             return;
         }
 
-        if (!preg_match('/^(?=.*[^A-Za-z\d])/', $password)) {
+        if (!preg_match('/^(?=.*\W)/', $password)) {
             http_response_code(400);
             echo json_encode([
                 'success' => false,
-                'messagePassword' => 'The password must contain at least one special character.',
+                'messagePassword' => 'Hasło musi zawierać co najmniej jeden znak specjalny.',
                 'isErrorPassword' => true,
             ]);
             return;
@@ -219,7 +219,7 @@ class AuthController
             http_response_code(400);
             echo json_encode([
                 'success' => false,
-                'messageUsername' => 'Username must be between 3 and 50 characters long.',
+                'messageUsername' => 'Nazwa użytkownika musi mieć od 3 do 50 znaków.',
                 'isErrorUsername' => true,
             ]);
             return;
@@ -234,7 +234,7 @@ class AuthController
             http_response_code(400);
             echo json_encode([
                 'success' => false,
-                'messageUsername' => 'Username already taken.',
+                'messageUsername' => 'Nazwa użytkownika jest już zajęta.',
                 'isErrorUsername' => true,
             ]);
 
@@ -371,7 +371,7 @@ class AuthController
         } else {
             echo json_encode([
                 'success' => false,
-                'message' => 'Wrong code'
+                'message' => 'Nieprawidłowy kod.'
             ]);
         }
     }
